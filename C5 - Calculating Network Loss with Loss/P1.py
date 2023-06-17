@@ -60,7 +60,7 @@ class Loss_CategoricalCrossEntropy(Loss):
             ]
         elif len(y_true.shape) == 2:
             correct_confidences = np.sum(
-                y_true * y_true,
+                y_pred_clipped * y_true,
                 axis=1
             )
 
