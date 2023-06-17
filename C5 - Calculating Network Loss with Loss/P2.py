@@ -4,6 +4,8 @@ import nnfs
 
 from nnfs.datasets import spiral_data
 
+nnfs.init()
+
 # Layer
 # Dense Class
 
@@ -14,7 +16,7 @@ class Layer_Dense:
         self.biases = np.zeros((1, n_neurons))
 
     def forward(self, inputs):
-        self.outputs = np.dot(input, self.weights) + self.biases
+        self.outputs = np.dot(inputs, self.weights) + self.biases
 
 # Activations
 # Rectified Linear Unit (ReLU) Class
@@ -68,19 +70,42 @@ class Loss_CategoricalCrossEntropy(Loss):
 # Accuracy Class
 
 
-# Initialize dataset
+class Accuracy:
+    def calculate(self, outputs, y):
+        predictions = np.argmax(outputs, axis=1)
+        if len(y.shape) == 2:
+            y = np.argmax(y, axis=1)
+        accuracy = np.mean(predictions == y)
+        return accuracy
 
+
+# Initialize dataset
+X, y = spiral_data(samples=100, classes=3)
 
 # Apply Dense Layer
-
+dense1 = Layer_Dense(2, 3)
+dense1.forward(X)
 
 # Apply ReLU Activation
+activation1 = Activation_ReLU()
+activation1.forward(dense1.outputs)
 
+# Apply Dense Layer
+dense2 = Layer_Dense(3, 3)
+dense2.forward(activation1.outputs)
 
 # Apply Softmax Activation
-
+activation2 = Activation_Softmax()
+activation2.forward(dense2.outputs)
 
 # Apply Loss Function
+loss1 = Loss_CategoricalCrossEntropy()
+loss_value = loss1.calculate(activation2.outputs, y)
 
+# print(loss_value)
 
 # Calculate Accuracy
+accuracy1 = Accuracy()
+accuracy_value = accuracy1.calculate(activation2.outputs, y)
+
+print(accuracy_value)
