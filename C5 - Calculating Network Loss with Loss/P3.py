@@ -40,8 +40,12 @@ class Activation_Softmax:
 
 
 # class Loss:
-#     def calculate(self, outputs, y):
-#         pass
+
+
+    def calculate(self, outputs, y):
+        sample_losses = self.forward(outputs, y)
+        data_loss = np.mean(sample_losses)
+        return data_loss
 
 # Categorical Cross-Entropy Class
 
@@ -67,6 +71,14 @@ class Loss_CategoricalCrossEntropy(Loss):
 
 # Accuracy Class
 
+
+class Accuracy:
+    def forward(self, outputs, y):
+        predictions = np.argmax(outputs, axis=1)
+        if len(y.shape) == 2:
+            y = np.argmax(y, axis=1)
+        accuracy = np.mean(predictions == y)
+        return accuracy
 
 # Initialize Dataset
 
