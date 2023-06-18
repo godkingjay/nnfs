@@ -84,7 +84,8 @@ class Accuracy:
 X, y = spiral_data(samples=100, classes=3)
 
 # Implement Dense
-
+dense1 = Layer_Dense(2, 3)
+dense1.forward(X)
 
 # Implement ReLU
 
