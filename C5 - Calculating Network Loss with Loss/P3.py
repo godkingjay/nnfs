@@ -22,9 +22,9 @@ class Layer_Dense:
 # Rectified Linear Unit (ReLU) Class
 
 
-# class Activation_ReLU:
-#     def forward(self, inputs):
-#         self.outputs = np.maximum(0, inputs)
+class Activation_ReLU:
+    def forward(self, inputs):
+        self.outputs = np.maximum(0, inputs)
 
 # Softmax Class
 
