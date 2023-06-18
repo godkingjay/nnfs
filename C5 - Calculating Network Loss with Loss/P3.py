@@ -41,7 +41,6 @@ class Activation_Softmax:
 
 # class Loss:
 
-
     def calculate(self, outputs, y):
         sample_losses = self.forward(outputs, y)
         data_loss = np.mean(sample_losses)
@@ -80,8 +79,9 @@ class Accuracy:
         accuracy = np.mean(predictions == y)
         return accuracy
 
-# Initialize Dataset
 
+# Initialize Dataset
+X, y = spiral_data(samples=100, classes=3)
 
 # Implement Dense
 
