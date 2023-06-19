@@ -33,6 +33,7 @@ class Activation_Softmax:
     def forward(self, inputs):
         exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
+        self.outputs = probabilities
 
 # Loss
 # Loss Class
@@ -96,9 +97,17 @@ dense2 = Layer_Dense(3, 3)
 dense2.forward(activation1.outputs)
 
 # Implement Softmax Activation
-
+activation2 = Activation_Softmax()
+activation2.forward(dense2.outputs)
 
 # Implement Loss Function
+loss1 = Loss_CategoricalCrossEntropy()
+loss_value = loss1.calculate(activation2.outputs, y)
 
+print("Loss: ", loss_value)
 
 # Calculate Accuracy
+accuracy1 = Accuracy()
+accuracy_value = accuracy1.calculate(activation2.outputs, y)
+
+print("Accuracy: ", accuracy_value)
