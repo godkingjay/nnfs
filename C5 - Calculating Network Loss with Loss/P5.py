@@ -33,6 +33,7 @@ class Activation_Softmax:
     def forward(self, inputs):
         exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
+        self.outputs = probabilities
 
 # Loss
 # Loss Class
@@ -84,7 +85,8 @@ class Accuracy:
 X, y = spiral_data(samples=100, classes=3)
 
 # Create 1st Hidden Layer
-
+dense1 = Layer_Dense(2, 3)
+dense1.forward(X)
 
 # Implement ReLU Activation
 
