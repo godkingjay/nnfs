@@ -41,7 +41,7 @@ class Loss:
 class Loss_CategoricalCrossEntropy(Loss):
   def forward(self, y_pred, y_true):
     samples = len(y_pred)
-    y_pred_clipped = np.clip(y_pred)
+    y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
     
     if len(y_true.shape) == 1:
       correct_confidences = y_pred_clipped[
@@ -89,7 +89,7 @@ activation2.forward(dense2.outputs)
 loss1 = Loss_CategoricalCrossEntropy()
 loss_value = loss1.calculate(activation2.outputs, y)
 
-print("Loss: ,", loss_value)
+print("Loss: ", loss_value)
 
 # Calculate Accuracy
  
