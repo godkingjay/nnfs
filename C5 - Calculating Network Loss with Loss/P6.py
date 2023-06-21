@@ -67,7 +67,7 @@ class Accuracy:
     return accuracy
 
 # Initialize Dataset
-
+X, y = spiral_data(samples=100, classes=3)
 
 # Create 1st Hidden Layer
 
