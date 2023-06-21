@@ -75,10 +75,11 @@ dense1.forward(X)
 
 # Implement ReLU
 activation1 = Activation_ReLU()
-activation1.forward(X)
+activation1.forward(dense1.outputs)
 
 # Create 2nd Hidden Layer
-
+dense2 = Layer_Dense(3, 3)
+dense2.forward(activation1.outputs)
 
 # Implement Softmax
 
