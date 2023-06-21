@@ -31,10 +31,29 @@ class Activation_Softmax:
 
 # Loss
 # Loss Class
-
+class Loss:
+  def calculate(self):
+    pass
 
 # Categorical Cross-Entropy Class
-
+class Loss_CategoricalCrossEntropy(Loss):
+  def forward(self, outputs, y_true):
+    samples = len(outputs)
+    y_pred_clipped = np.clip(outputs)
+    
+    if len(y_true.shape) == 1:
+      correct_confidences = y_pred_clipped[
+        range(samples),
+        y_true
+      ]
+    elif len(y_true.shape) == 2:
+      correct_confidences = np.sum(
+        y_pred_clipped * y_true,
+        axis=1
+      )
+    
+    neg_log = -np.log(correct_confidences)
+    return neg_log
 
 # Accuracy Class
 
