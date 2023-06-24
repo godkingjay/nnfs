@@ -107,3 +107,7 @@ loss_value = loss1.calculate(activation2.outputs, y)
 print("Loss: ", loss_value)
 
 # Calculate Accuracy
+accuracy1 = Accuracy()
+accuracy_value = accuracy1.calculate(activation2.outputs, y)
+
+print("Accuracy: ", accuracy_value)
