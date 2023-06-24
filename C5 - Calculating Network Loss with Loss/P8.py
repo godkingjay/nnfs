@@ -87,7 +87,8 @@ dense1 = Layer_Dense(2, 3)
 dense1.forward(X)
 
 # Implement Rectified Linear Unit (ReLU) Activation
-
+activation1 = Activation_ReLU()
+activation1.forward(dense1.outputs)
 
 # Create 2nd Hidden Layer
 
