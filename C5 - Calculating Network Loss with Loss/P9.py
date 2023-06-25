@@ -41,12 +41,14 @@ class Activation_Softmax:
 
 class Loss:
     def calculate(self, outputs, y):
-        pass
+        sample_losses = self.forward(outputs, y)
+        data_loss = np.mean(sample_losses)
+        return data_loss
 
 # Categorical Cross-Entropy Class
 
 
-class Loss_CategoricalCrossEntropy:
+class Loss_CategoricalCrossEntropy(Loss):
     def forward(self, y_pred, y_true):
         samples = len(y_pred)
         y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
