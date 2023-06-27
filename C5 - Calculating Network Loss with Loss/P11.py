@@ -93,7 +93,8 @@ dense2 = Layer_Dense(3, 3)
 dense2.forward(activation1.outputs)
 
 # Implement Softmax Activation
-
+activation2 = Activation_Softmax()
+activation2.forward(dense2.outputs)
 
 # Calculate Loss
 
