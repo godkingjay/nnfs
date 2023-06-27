@@ -70,6 +70,12 @@ class Loss_CategoricalCrossEntropy(Loss):
 # Accuracy Class
 
 
+class Accuracy:
+    def calculate(self, outputs, y):
+        comparisons = self.compare(outputs, y)
+        accuracy = np.mean(comparisons)
+        return accuracy
+
 # Initialize Dataset
 
 
