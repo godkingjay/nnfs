@@ -86,6 +86,7 @@ X, y = vertical_data(samples=100, classes=3)
 dense1 = Layer_Dense(2, 3)
 activation1 = Activation_ReLU()
 dense2 = Layer_Dense(3, 3)
+activation2 = Activation_Softmax()
 
 # Initialize Helper Variables
 
