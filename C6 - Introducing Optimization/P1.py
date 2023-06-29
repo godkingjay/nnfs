@@ -87,8 +87,8 @@ dense1 = Layer_Dense(2, 3)
 activation1 = Activation_ReLU()
 dense2 = Layer_Dense(3, 3)
 activation2 = Activation_Softmax()
-loss_functions = Loss_CategoricalCrossEntropy()
-accuracy_functions = Accuracy()
+loss_function = Loss_CategoricalCrossEntropy()
+accuracy_function = Accuracy()
 
 # Initialize Helper Variables
 best_dense1_weights = dense1.weights.copy()
@@ -118,6 +118,7 @@ for iteration in range(100000):
     activation2.forward(dense2.outputs)
 
     # Calculate Loss
+    loss = loss_function.calculate(activation2.outputs, y)
 
     # Calculate Accuracy
 
