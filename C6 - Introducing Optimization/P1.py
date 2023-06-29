@@ -76,7 +76,7 @@ class Accuracy:
         if len(y.shape) == 2:
             y = np.argmax(y, axis=1)
         accuracy = np.mean(predictions == y)
-        return y
+        return accuracy
 
 # Initialize Dataset
 
