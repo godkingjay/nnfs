@@ -88,6 +88,7 @@ activation1 = Activation_ReLU()
 dense2 = Layer_Dense(3, 3)
 activation2 = Activation_Softmax()
 loss_functions = Loss_CategoricalCrossEntropy()
+accuracy_functions = Accuracy()
 
 # Initialize Helper Variables
 
