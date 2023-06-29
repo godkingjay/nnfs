@@ -106,6 +106,7 @@ for iteration in range(100000):
     dense2.biases += 0.05 * np.random.rand(1, 3)
 
     # Implement 1st Dense Layer Forward Pass
+    dense1.forward(X)
 
     # Implement Rectified Linear Activation Forward Pass
 
