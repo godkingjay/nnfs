@@ -78,8 +78,9 @@ class Accuracy:
         accuracy = np.mean(predictions == y)
         return accuracy
 
-# Initialize Dataset
 
+# Initialize Dataset
+X, y = vertical_data(samples=100, classes=3)
 
 # Create Layers, Activations, Loss Function, and Accuracy Objects
 
