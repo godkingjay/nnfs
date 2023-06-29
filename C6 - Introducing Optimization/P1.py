@@ -98,25 +98,29 @@ best_dense2_biases = dense2.biases.copy()
 lowest_loss = 9999999
 
 # Perform Iteration
+for iteration in range(100000):
+    # Generate new set of weights and biases
+    dense1.weights += 0.05 * np.random.rand(2, 3)
+    dense1.biases += 0.05 * np.random.rand(1, 3)
+    dense2.weights += 0.05 * np.random.rand(3, 3)
+    dense2.biases += 0.05 * np.random.rand(1, 3)
 
-# Generate new set of weights and biases
+    # Implement 1st Dense Layer Forward Pass
 
-# Implement 1st Dense Layer Forward Pass
+    # Implement Rectified Linear Activation Forward Pass
 
-# Implement Rectified Linear Activation Forward Pass
+    # Implement 2nd Dense Layer Forward Pass
 
-# Implement 2nd Dense Layer Forward Pass
+    # Implement Softmax Activation Forward Pass
 
-# Implement Softmax Activation Forward Pass
+    # Calculate Loss
 
-# Calculate Loss
+    # Calculate Accuracy
 
-# Calculate Accuracy
+    # Check if current loss is less than lowest loss
+    # Print the iteration number, loss, and accuracy
 
-# Check if current loss is less than lowest loss
-# Print the iteration number, loss, and accuracy
+    # Copy the current iteration's weights, biases, and loss to helper variables
 
-# Copy the current iteration's weights, biases, and loss to helper variables
-
-# Else
-# Copy best weights and biases to dense object properties
+    # Else
+    # Copy best weights and biases to dense object properties
