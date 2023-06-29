@@ -1,5 +1,10 @@
 # Import Libraries
+import numpy as np
+import nnfs
 
+from nnfs.datasets import vertical_data
+
+nnfs.init()
 
 # Layers
 # Dense Class
