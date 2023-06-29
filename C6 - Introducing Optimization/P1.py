@@ -85,6 +85,7 @@ X, y = vertical_data(samples=100, classes=3)
 # Create Layers, Activations, Loss Function, and Accuracy Objects
 dense1 = Layer_Dense(2, 3)
 activation1 = Activation_ReLU()
+dense2 = Layer_Dense(3, 3)
 
 # Initialize Helper Variables
 
