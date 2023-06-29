@@ -87,6 +87,7 @@ dense1 = Layer_Dense(2, 3)
 activation1 = Activation_ReLU()
 dense2 = Layer_Dense(3, 3)
 activation2 = Activation_Softmax()
+loss_functions = Loss_CategoricalCrossEntropy()
 
 # Initialize Helper Variables
 
