@@ -109,6 +109,7 @@ for iteration in range(100000):
     dense1.forward(X)
 
     # Implement Rectified Linear Activation Forward Pass
+    activation1.forward(dense1.outputs)
 
     # Implement 2nd Dense Layer Forward Pass
 
