@@ -70,6 +70,14 @@ class Loss_CategoricalCrossEntropy(Loss):
 # Accuracy Class
 
 
+class Accuracy:
+    def calculate(self, outputs, y):
+        predictions = np.argmax(outputs, axis=1)
+        if len(y.shape) == 2:
+            y = np.argmax(y, axi1)
+        accuracy = np.mean(predictions == y)
+        return y
+
 # Initialize Dataset
 
 
