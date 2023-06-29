@@ -98,7 +98,7 @@ best_dense2_biases = dense2.biases.copy()
 lowest_loss = 9999999
 
 # Perform Iteration
-for iteration in range(100000):
+for iteration in range(10000):
     # Generate new set of weights and biases
     dense1.weights += 0.05 * np.random.rand(2, 3)
     dense1.biases += 0.05 * np.random.rand(1, 3)
@@ -124,9 +124,20 @@ for iteration in range(100000):
     accuracy = accuracy_function.calculate(activation2.outputs, y)
 
     # Check if current loss is less than lowest loss
-    # Print the iteration number, loss, and accuracy
-
-    # Copy the current iteration's weights, biases, and loss to helper variables
-
+    if loss < lowest_loss:
+        # Print the iteration number, loss, and accuracy
+        print(
+            f'New set of weights found, iteration: {iteration}, loss: {loss}, accuracy: {accuracy}')
+        # Copy the current iteration's weights, biases, and loss to helper variables
+        best_dense1_weights = dense1.weights.copy()
+        best_dense1_biases = dense1.biases.copy()
+        best_dense2_weights = dense2.weights.copy()
+        best_dense2_biases = dense2.biases.copy()
+        lowest_loss = loss
     # Else
-    # Copy best weights and biases to dense object properties
+    else:
+        # Copy best weights and biases to dense object properties
+        dense1.weights = best_dense1_weights.copy()
+        dense1.biases = best_dense1_biases.copy()
+        dense2.weights = best_dense2_weights.copy()
+        dense2.biases = best_dense2_biases.copy()
