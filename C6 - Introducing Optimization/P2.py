@@ -93,9 +93,14 @@ activation1 = Activation_ReLU()
 activation2 = Activation_Softmax()
 
 # Create Loss and Accuracy Function objects
-
+loss_functions = Loss_CategoricalCrossEntropy()
+accuracy_functions = Accuracy()
 
 # Initialize Helper Variables
-
+best_dense1_weights = dense1.weights.copy()
+best_dense1_biases = dense1.biases.copy()
+best_dense2_weights = dense2.weights.copy()
+best_dense2_biases = dense2.biases.copy()
+lowest_loss = 9999999
 
 # Perform Iteration
