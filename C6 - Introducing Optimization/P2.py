@@ -106,6 +106,10 @@ lowest_loss = 9999999
 # Perform Iteration
 for iteration in range(10000):
     # Generate new set of weights and biases
+    dense1.weights += 0.05 * np.random.randn(2, 3)
+    dense1.biases += 0.05 * np.random.randn(1, 3)
+    dense2.weights += 0.05 * np.random.randn(3, 3)
+    dense2.biases += 0.05 * np.random.randn(1, 3)
 
     # Perform 1st Dense Hidden Layer Forward Pass
 
