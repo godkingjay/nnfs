@@ -121,6 +121,7 @@ for iteration in range(10000):
     dense2.forward(activation1.outputs)
 
     # Implement Softmax Activation Forward Pass
+    activation2.forward(dense2.outputs)
 
     # Calculate Loss
 
