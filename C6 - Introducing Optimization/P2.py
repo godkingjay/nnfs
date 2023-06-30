@@ -118,6 +118,7 @@ for iteration in range(10000):
     activation1.forward(dense1.outputs)
 
     # Perform 2nd Dense Hidden Layer Forward Pass
+    dense2.forward(activation1.outputs)
 
     # Implement Softmax Activation Forward Pass
 
