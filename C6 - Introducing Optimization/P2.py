@@ -85,7 +85,8 @@ class Accuracy:
 X, y = vertical_data(samples=100, classes=3)
 
 # Create 1st and 2nd Hidden Layer
-
+dense1 = Layer_Dense(2, 3)
+dense2 = Layer_Dense(3, 3)
 
 # Create Activation Functions objects
 
