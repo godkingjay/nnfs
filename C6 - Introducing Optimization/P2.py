@@ -115,6 +115,7 @@ for iteration in range(10000):
     dense1.forward(X)
 
     # Implement Rectified Linear Unit (ReLU) Activation Forward Pass
+    activation1.forward(dense1.outputs)
 
     # Perform 2nd Dense Hidden Layer Forward Pass
 
