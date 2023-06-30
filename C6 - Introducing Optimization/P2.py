@@ -112,6 +112,7 @@ for iteration in range(10000):
     dense2.biases += 0.05 * np.random.randn(1, 3)
 
     # Perform 1st Dense Hidden Layer Forward Pass
+    dense1.forward(X)
 
     # Implement Rectified Linear Unit (ReLU) Activation Forward Pass
 
