@@ -89,7 +89,8 @@ dense1 = Layer_Dense(2, 3)
 dense2 = Layer_Dense(3, 3)
 
 # Create Activation Functions objects
-
+activation1 = Activation_ReLU()
+activation2 = Activation_Softmax()
 
 # Create Loss and Accuracy Function objects
 
