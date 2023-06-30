@@ -130,4 +130,17 @@ for iteration in range(10000):
     accuracy = accuracy_function.calculate(activation2.outputs, y)
 
     # If Loss is Lower, Print and Save Weights and Biases
+    if loss < lowest_loss:
+        print(
+            f'New set of weights found, iteration: {iteration}, loss: {loss}, accuracy: {accuracy}')
+        best_dense1_weights = dense1.weights.copy()
+        best_dense1_biases = dense1.biases.copy()
+        best_dense2_weights = dense2.weights.copy()
+        best_dense2_biases = dense2.biases.copy()
+        lowest_loss = loss
     # Else Restore Weights and Biases
+    else:
+        dense1.weights = best_dense1_weights.copy()
+        dense1.biases = best_dense1_biases.copy()
+        dense2.weights = best_dense2_weights.copy()
+        dense2.biases = best_dense2_biases.copy()
