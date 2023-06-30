@@ -127,6 +127,7 @@ for iteration in range(10000):
     loss = loss_function.calculate(activation2.outputs)
 
     # Calculate Accuracy
+    accuracy = accuracy_function.calculate(activation2.outputs, y)
 
     # If Loss is Lower, Print and Save Weights and Biases
     # Else Restore Weights and Biases
