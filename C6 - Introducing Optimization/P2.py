@@ -104,3 +104,20 @@ best_dense2_biases = dense2.biases.copy()
 lowest_loss = 9999999
 
 # Perform Iteration
+for iteration in range(10000):
+    # Generate new set of weights and biases
+
+    # Perform 1st Dense Hidden Layer Forward Pass
+
+    # Implement Rectified Linear Unit (ReLU) Activation Forward Pass
+
+    # Perform 2nd Dense Hidden Layer Forward Pass
+
+    # Implement Softmax Activation Forward Pass
+
+    # Calculate Loss
+
+    # Calculate Accuracy
+
+    # If Loss is Lower, Print and Save Weights and Biases
+    # Else Restore Weights and Biases
