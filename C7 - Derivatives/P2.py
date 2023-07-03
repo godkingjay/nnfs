@@ -8,8 +8,10 @@ import numpy as np
 def f(x):
     return (x**3) + (2*x**2) - (5*x) + 7
 
-# Create x and y coordinates
 
+# Create x and y coordinates
+x = np.arange(0, 5, 0.0001)
+y = f(x)
 
 # Plot x and y coordinates
 
