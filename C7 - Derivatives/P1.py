@@ -49,6 +49,7 @@ for i in range(5):
     derivative = analytical_derivative(x1)
 
     # Get y-intercept
+    b = y2 - (derivative * x2)
 
     # Create X and Y coordinates for tangent line
 
