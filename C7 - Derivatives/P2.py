@@ -52,6 +52,8 @@ for i in range(5):
     b = y2 - (derivative * x2)
 
     # Create x and y coordinates for tangent line
+    xd = [x1 - 0.9, x1, x1 + 0.9]
+    yd = [tangent_line(point, derivative, b) for point in xd]
 
     # Plot tangent line
 
