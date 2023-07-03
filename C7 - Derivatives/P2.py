@@ -14,7 +14,7 @@ x = np.arange(0, 5, 0.0001)
 y = f(x)
 
 # Plot x and y coordinates
-
+plt.plot(x, y)
 
 # Colors
 
