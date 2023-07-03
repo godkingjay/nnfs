@@ -22,6 +22,9 @@ colors = ['k', 'g', 'r', 'b', 'c']
 # Method for Derivative
 
 
+def analytical_derivative(x):
+    return (3*x**2) + (4*x) - 5
+
 # Method for y-intercept
 
 
