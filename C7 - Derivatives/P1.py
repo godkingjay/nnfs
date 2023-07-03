@@ -17,7 +17,7 @@ y = f(x)
 plt.plot(x, y)
 
 # Colors
-
+colors = ['k', 'g', 'r', 'b', 'c']
 
 # Method for Derivative
 
