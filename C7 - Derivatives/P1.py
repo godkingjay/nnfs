@@ -42,6 +42,8 @@ for i in range(5):
     x2 = x1 + p2_delta
 
     # Create Y variable for two points
+    y1 = f(x1)
+    y2 = f(x2)
 
     # Get Derivative
 
