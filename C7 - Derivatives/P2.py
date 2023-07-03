@@ -25,8 +25,11 @@ colors = ['k', 'g', 'r', 'b', 'c']
 def analytical_derivative(x):
     return (3*x**2) + (4*x) - 5
 
-# Method for y-intercept
+# Method for tangent line
 
+
+def tangent_line(x, derivative, b):
+    return (derivative * x) + b
 
 # Iterate Range
 
