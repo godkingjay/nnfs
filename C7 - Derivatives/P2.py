@@ -35,3 +35,4 @@ def tangent_line(x, derivative, b):
 
 
 # Show Plot
+plt.show()
