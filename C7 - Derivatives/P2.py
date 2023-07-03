@@ -56,10 +56,12 @@ for i in range(5):
     yd = [tangent_line(point, derivative, b) for point in xd]
 
     # Plot tangent line
-    plt.scatter(x1, y1, colors[i])
-    plt.plot(xd, yd, colors[i])
+    plt.scatter(x1, y1, c=colors[i])
+    plt.plot(xd, yd, c=colors[i])
 
     # Print Derivative
+    print('Analytical Derivative for f(x)',
+          f'where x = {x1} is {derivative}')
 
 # Show Plot
 plt.show()
