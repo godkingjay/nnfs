@@ -46,6 +46,7 @@ for i in range(5):
     y2 = f(x2)
 
     # Get Derivative
+    derivative = analytical_derivative(x1)
 
     # Get y-intercept
 
