@@ -28,6 +28,9 @@ def analytical_derivative(x):
 # Method for Tangent Line
 
 
+def tangent_line(x, derivative, b):
+    return (derivative * x) + b
+
 # Iterate Range
 
 
