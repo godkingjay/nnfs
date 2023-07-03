@@ -34,21 +34,22 @@ def tangent_line(x, derivative, b):
 
 # Iterate Range
 for i in range(5):
-  # Create Delta
+    # Create Delta
+    p2_delta = 0.0001
 
-  # Create X variable for two points
+    # Create X variable for two points
 
-  # Create Y variable for two points
+    # Create Y variable for two points
 
-  # Get Derivative
+    # Get Derivative
 
-  # Get y-intercept
+    # Get y-intercept
 
-  # Create X and Y coordinates for tangent line
+    # Create X and Y coordinates for tangent line
 
-  # Plot tangent line
+    # Plot tangent line
 
-  # Print Derivative
+    # Print Derivative
 
-    # Show Plot
+# Show Plot
 plt.show()
