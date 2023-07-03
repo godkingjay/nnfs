@@ -35,6 +35,7 @@ def tangent_line(x, derivative, b):
 # Iterate Range
 for i in range(5):
     # Create Delta
+    p2_delta = 0.0001
 
     # x coordinate for two points
 
@@ -49,8 +50,6 @@ for i in range(5):
     # Plot tangent line
 
     # Print Derivative
-
-    pass
 
 # Show Plot
 plt.show()
