@@ -31,8 +31,24 @@ def analytical_derivative(x):
 def tangent_line(x, derivative, b):
     return (derivative * x) + b
 
+
 # Iterate Range
+for i in range(5):
+  # Create Delta
 
+  # Create X variable for two points
 
-# Show Plot
+  # Create Y variable for two points
+
+  # Get Derivative
+
+  # Get y-intercept
+
+  # Create X and Y coordinates for tangent line
+
+  # Plot tangent line
+
+  # Print Derivative
+
+    # Show Plot
 plt.show()
