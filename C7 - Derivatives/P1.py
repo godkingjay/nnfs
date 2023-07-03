@@ -38,6 +38,8 @@ for i in range(5):
     p2_delta = 0.0001
 
     # Create X variable for two points
+    x1 = i
+    x2 = x1 + p2_delta
 
     # Create Y variable for two points
 
