@@ -22,6 +22,9 @@ colors = ['k', 'g', 'r', 'b', 'c']
 # Method for Derivative
 
 
+def analytical_derivative(x):
+    return (25*x**4) + (12*x**2)
+
 # Method for Tangent Line
 
 
