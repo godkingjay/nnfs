@@ -60,6 +60,8 @@ for i in range(5):
     plt.plot(xd, yd, c=colors[i])
 
     # Print Derivative
+    print('Analytical derivative for f(x)',
+          f'where x = {x1} is {derivative}')
 
 # Show Plot
 plt.show()
