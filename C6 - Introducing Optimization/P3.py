@@ -130,5 +130,13 @@ for iteration in range(10000):
     accuracy = accuracy_function.calculate(activation2.outputs, y)
 
     # If statement if loss is lower than current best loss
+    if loss < lowest_loss:
+        print(
+            f'New set of weights found, iteration: {iteration}, loss: {loss}, accuracy: {accuracy}')
+        best_dense1_weights = dense1.weights.copy()
+        best_dense1_biases = dense1.biases.copy()
+        best_dense2_weights = dense2.weights.copy()
+        best_dense2_biases = dense2.biases.copy()
+        loss = lowest_loss
     # Else statement if not
     pass
