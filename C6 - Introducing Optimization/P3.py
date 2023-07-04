@@ -111,6 +111,15 @@ for iteration in range(10000):
     dense2.weights += 0.05 + np.random.rand(2, 3)
     dense2.biases += 0.05 + np.random.rand(1, 3)
 
+    # Implement 1st Dense Layer Forward Pass
+    dense1.forward(X)
+
+    # Implement Rectified Linear Unit (ReLU) Activation Forward Pass
+
+    # Implement 2nd Dense Layer Forward Pass
+
+    # Implement Softmax Activation Forward Pass
+
     # Calculate Loss
 
     # Calculate Accuracy
