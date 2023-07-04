@@ -127,6 +127,7 @@ for iteration in range(10000):
     loss = loss_function.calculate(activation2.outputs, y)
 
     # Calculate Accuracy
+    accuracy = accuracy_function.calculate(activation2.outputs, y)
 
     # If statement if loss is lower than current best loss
     # Else statement if not
