@@ -108,7 +108,7 @@ for iteration in range(10000):
     # Generate new weights and biases
     dense1.weights += 0.05 + np.random.rand(2, 3)
     dense1.biases += 0.05 + np.random.rand(1, 3)
-    dense2.weights += 0.05 + np.random.rand(2, 3)
+    dense2.weights += 0.05 + np.random.rand(3, 3)
     dense2.biases += 0.05 + np.random.rand(1, 3)
 
     # Implement 1st Dense Layer Forward Pass
@@ -137,6 +137,10 @@ for iteration in range(10000):
         best_dense1_biases = dense1.biases.copy()
         best_dense2_weights = dense2.weights.copy()
         best_dense2_biases = dense2.biases.copy()
-        loss = lowest_loss
+        lowest_loss = loss
     # Else statement if not
-    pass
+    else:
+        dense1.weights = best_dense1_weights.copy()
+        dense1.biases = best_dense1_biases.copy()
+        dense2.weights = best_dense2_weights.copy()
+        dense2.biases = best_dense2_biases.copy()
