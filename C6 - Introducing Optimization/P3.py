@@ -93,6 +93,7 @@ activation1 = Activation_ReLU()
 activation2 = Activation_Softmax()
 
 # Create object for Loss and Accuracy
-
+loss_function = Loss_CategoricalCrossEntropy()
+accuracy_function = Accuracy()
 
 # Optimization
