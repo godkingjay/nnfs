@@ -124,6 +124,7 @@ for iteration in range(10000):
     activation2.forward(dense2.outputs)
 
     # Calculate Loss
+    loss = loss_function.calculate(activation2.outputs, y)
 
     # Calculate Accuracy
 
