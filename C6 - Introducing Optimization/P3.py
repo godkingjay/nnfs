@@ -96,6 +96,13 @@ activation2 = Activation_Softmax()
 loss_function = Loss_CategoricalCrossEntropy()
 accuracy_function = Accuracy()
 
+# Helper Variables
+best_dense1_weights = dense1.weights.copy()
+best_dense1_biases = dense1.biases.copy()
+best_dense2_weights = dense2.weights.copy()
+best_dense2_biases = dense1.biases.copy()
+lowest_loss = 9999999
+
 # Optimization
 for iteration in range(10000):
     # Generate new weights and biases
