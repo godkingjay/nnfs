@@ -97,3 +97,13 @@ loss_function = Loss_CategoricalCrossEntropy()
 accuracy_function = Accuracy()
 
 # Optimization
+for iteration in range(10000):
+    # Generate new weights and biases
+
+    # Calculate Loss
+
+    # Calculate Accuracy
+
+    # If statement if loss is lower than current best loss
+    # Else statement if not
+    pass
