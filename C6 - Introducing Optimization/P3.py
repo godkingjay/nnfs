@@ -106,6 +106,10 @@ lowest_loss = 9999999
 # Optimization
 for iteration in range(10000):
     # Generate new weights and biases
+    dense1.weights += 0.05 + np.random.rand(2, 3)
+    dense1.biases += 0.05 + np.random.rand(1, 3)
+    dense2.weights += 0.05 + np.random.rand(2, 3)
+    dense2.biases += 0.05 + np.random.rand(1, 3)
 
     # Calculate Loss
 
