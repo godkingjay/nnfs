@@ -47,6 +47,15 @@ class Activation_Softmax:
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
         self.outputs = probabilities
 
+    def backward(self, dvalues):
+        self.dinputs = np.empty_like(dvalues)
+
+        for index, (single_outputs, single_dvalues) in enumerate(zip(self.outputs, dvalues)):
+            single_outputs = single_outputs.reshape(-1, 1)
+            jacobian_matrix = np.diagflat(
+                single_outputs) - np.dot(single_outputs, single_outputs.T)
+            self.dinputs[index] = np.dot(jacobian_matrix, single_dvalues)
+
 # Loss
 # Loss Class
 
