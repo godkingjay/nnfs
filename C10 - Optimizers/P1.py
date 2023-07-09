@@ -151,7 +151,7 @@ dense1 = Layer_Dense(2, 64)
 activation = Activation_ReLU()
 
 # Create 2nd Dense Layer (64 input features from prev layer and 3 output values)
-
+dense2 = Layer_Dense(64, 3)
 
 # Create Softmax classifier's combined loss and activation
 
