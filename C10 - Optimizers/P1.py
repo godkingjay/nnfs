@@ -72,7 +72,7 @@ class Loss:
 class Loss_CategoricalCrossEntropy(Loss):
     def forward(self, y_pred, y_true):
         samples = len(y_pred)
-        y_pred_clipped = np.clip(y_true, 1e-7, 1 - 1e-7)
+        y_pred_clipped = np.clip(y_pred, 1e-7, 1 - 1e-7)
 
         if len(y_true.shape) == 1:
             correct_confidences = y_pred_clipped[
@@ -87,6 +87,16 @@ class Loss_CategoricalCrossEntropy(Loss):
 
         neg_log = -np.log(correct_confidences)
         return neg_log
+
+    def backward(self, dvalues, y_true):
+        samples = len(dvalues)
+        labels = len(dvalues[0])
+
+        if len(y_true.shape) == 1:
+            y_true = np.eye(labels)[y_true]
+
+        self.dinputs = -y_true / dvalues
+        self.dinputs = self.dinputs / samples
 
 # Loss and Activation
 # Categorical Cross-Entropy Loss and Softmax Activation Class
@@ -198,4 +208,5 @@ for epoch in range(10001):
     dense1.backward(activation1.dinputs)
 
     # Implement Optimizer Update to 1st and 2nd Dense Layer Weights and Biases
-    pass
+    optimizer_sgd.update_params(dense1)
+    optimizer_sgd.update_params(dense2)
