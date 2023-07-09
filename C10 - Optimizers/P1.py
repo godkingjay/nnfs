@@ -163,3 +163,26 @@ optimizer_sgd = Optimizer_SGD()
 accuracy_function = Accuracy()
 
 # Train in loop
+for epoch in range(10001):
+    # Implement 1st Dense Layer Forward Pass
+
+    # Implement ReLU Forward Pass
+
+    # Implement 2nd Dense Layer Forward Pass
+
+    # Implement Categorical Cross-Entropy Loss and Softmax Activation Forward Pass
+
+    # Calculate Accuracy
+
+    # Print accuracy every 100 epochs
+
+    # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
+
+    # Implement 2nd Dense Layer Backward Pass
+
+    # Implement ReLU Backward Pass
+
+    # Implement 1st Dense Layer Backward Pass
+
+    # Implement Optimizer Update to 1st and 2nd Dense Layer Weights and Biases
+    pass
