@@ -180,6 +180,10 @@ for epoch in range(10001):
     accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
     # Print accuracy every 100 epochs
+    if epoch % 100 == 0:
+        print(f'epoch: {epoch}, ' +
+              f'acc: {accuracy:.3f}, ' +
+              f'loss: {loss:.3f}')
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
 
