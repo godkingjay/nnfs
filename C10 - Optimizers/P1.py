@@ -140,8 +140,9 @@ class Accuracy:
         accuracy = np.mean(predictions == y_true)
         return y_true
 
-# Initialize Dataset
 
+# Initialize Dataset
+X, y = spiral_data(samples=100, classes=3)
 
 # Create 1st Dense Layer with 2 input features and 64 output values
 
