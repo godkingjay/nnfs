@@ -165,6 +165,7 @@ accuracy_function = Accuracy()
 # Train in loop
 for epoch in range(10001):
     # Implement 1st Dense Layer Forward Pass
+    dense1.forward(X)
 
     # Implement ReLU Forward Pass
 
