@@ -159,4 +159,7 @@ loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 # Create Optimizer
 optimizer_sgd = Optimizer_SGD()
 
+# Accuracy Object
+accuracy_function = Accuracy()
+
 # Train in loop
