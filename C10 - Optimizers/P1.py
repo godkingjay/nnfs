@@ -148,7 +148,7 @@ X, y = spiral_data(samples=100, classes=3)
 dense1 = Layer_Dense(2, 64)
 
 # Create ReLU Activation (to be used with Dense Layer):
-activation = Activation_ReLU()
+activation1 = Activation_ReLU()
 
 # Create 2nd Dense Layer (64 input features from prev layer and 3 output values)
 dense2 = Layer_Dense(64, 3)
@@ -168,6 +168,7 @@ for epoch in range(10001):
     dense1.forward(X)
 
     # Implement ReLU Forward Pass
+    activation1.forward(dense1.outputs)
 
     # Implement 2nd Dense Layer Forward Pass
 
