@@ -171,6 +171,7 @@ for epoch in range(10001):
     activation1.forward(dense1.outputs)
 
     # Implement 2nd Dense Layer Forward Pass
+    dense2.forward(activation1.outputs)
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Forward Pass
 
