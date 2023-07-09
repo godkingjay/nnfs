@@ -138,14 +138,14 @@ class Accuracy:
             y_true = np.argmax(y_true, axis=1)
 
         accuracy = np.mean(predictions == y_true)
-        return y_true
+        return accuracy
 
 
 # Initialize Dataset
 X, y = spiral_data(samples=100, classes=3)
 
 # Create 1st Dense Layer with 2 input features and 64 output values
-
+dense1 = Layer_Dense(2, 64)
 
 # Create ReLU Activation (to be used with Dense Layer):
 
