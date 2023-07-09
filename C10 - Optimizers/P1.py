@@ -177,6 +177,7 @@ for epoch in range(10001):
     loss = loss_activation.forward(dense2.outputs, y)
 
     # Calculate Accuracy
+    accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
     # Print accuracy every 100 epochs
 
