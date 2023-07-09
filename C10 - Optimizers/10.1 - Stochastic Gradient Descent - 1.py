@@ -21,6 +21,9 @@ class Layer_Dense:
         self.dinputs = np.dot(dvalues, self.weights.T)
 
 
+a
+
+
 class Activation_ReLU:
     def forward(self, inputs):
         self.inputs = inputs
