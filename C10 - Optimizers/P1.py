@@ -192,6 +192,7 @@ for epoch in range(10001):
     dense2.backward(loss_activation.dinputs)
 
     # Implement ReLU Backward Pass
+    activation1.backward(dense2.dinputs)
 
     # Implement 1st Dense Layer Backward Pass
 
