@@ -92,6 +92,11 @@ class Loss_CategoricalCrossEntropy(Loss):
 # Categorical Cross-Entropy Loss and Softmax Activation Class
 
 
+class Loss_CategoricalCrossEntropy_Activation_Softmax():
+    def __init__(self, y_pred, y_true) -> None:
+        self.activation = Activation_Softmax()
+        self.loss_function = Loss_CategoricalCrossEntropy()
+
 # Optimizer
 # Stochastic Gradient Descent (SGD) Optimizer Class
 
