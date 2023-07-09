@@ -21,9 +21,6 @@ class Layer_Dense:
         self.dinputs = np.dot(dvalues, self.weights.T)
 
 
-a
-
-
 class Activation_ReLU:
     def forward(self, inputs):
         self.inputs = inputs
@@ -148,7 +145,7 @@ for epoch in range(10001):
     dense2.forward(activation1.outputs)
 
     loss = loss_activation.forward(dense2.outputs, y)
-    accuracy = accuracy_function.calculate(dense2.outputs, y)
+    accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
     if not epoch % 100:
         print(
