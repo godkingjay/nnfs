@@ -195,6 +195,7 @@ for epoch in range(10001):
     activation1.backward(dense2.dinputs)
 
     # Implement 1st Dense Layer Backward Pass
+    dense1.backward(activation1.dinputs)
 
     # Implement Optimizer Update to 1st and 2nd Dense Layer Weights and Biases
     pass
