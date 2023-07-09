@@ -154,7 +154,7 @@ activation = Activation_ReLU()
 dense2 = Layer_Dense(64, 3)
 
 # Create Softmax classifier's combined loss and activation
-
+loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
 # Create Optimizer
 
