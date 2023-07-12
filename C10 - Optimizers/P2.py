@@ -46,18 +46,25 @@ class Activation_Softmax:
         exp_values = np.exp(inputs - np.max(inputs, axis=1, keepdims=True))
         probabilities = exp_values / np.sum(exp_values, axis=1, keepdims=True)
         self.outputs = probabilities
-    
+
     def backward(self, dvalues):
         self.dinputs = np.empty_like(dvalues)
-        
+
         for index, (single_output, single_dvalues) in enumerate(zip(self.outputs, dvalues)):
             single_output = single_output.reshape(-1, 1)
-            jacobian_matrix = np.diagflat(single_output) - np.dot(single_output, single_output.T)
+            jacobian_matrix = np.diagflat(
+                single_output) - np.dot(single_output, single_output.T)
             self.dinputs[index] = np.dot(jacobian_matrix, single_dvalues)
-            
+
 # Loss
 # Loss Class
 
+
+class Loss:
+    def calculate(self, y_pred, y_true):
+        sample_losses = self.forward(y_pred, y_true)
+        data_loss = np.mean(sample_losses)
+        return data_loss
 
 # Categorical Cross-Entropy Loss Class
 
