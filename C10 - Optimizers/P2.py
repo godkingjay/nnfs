@@ -88,6 +88,16 @@ class Loss_CategoricalCrossEntropy(Loss):
         neg_log = -np.log(correct_confidences)
         return neg_log
 
+    def backward(self, dvalues, y_true):
+        samples = len(dvalues)
+        labels = len(dvalues[0])
+
+        if len(y_true.shape) == 1:
+            y_true = np.eye(labels)(y_true)
+
+        self.dinputs = -y_true / dvalues
+        self.dinputs = self.dinputs / samples
+
 # Loss and Activation Functions
 # Categorical Cross-Entropy Loss and Softmax Activation Class
 
