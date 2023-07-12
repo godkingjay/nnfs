@@ -114,23 +114,31 @@ class Loss_CategoricalCrossEntropy_Activation_Softmax():
 
     def backward(self, dvalues, y_true):
         samples = len(dvalues)
-        
+
         if len(y_true.shape) == 2:
             y_true = np.argmax(y_true, axis=1)
-        
+
         self.dinputs = dvalues.copy()
         self.dinputs[
             range(samples),
             y_true
         ] -= 1
-        self.dinputs =self.dinputs / samples
+        self.dinputs = self.dinputs / samples
 
 # Optimizers
 # Stochastic Gradient Descent (SGD) Optimizer Class
 
 
 # Accuracy Class
+class Accuracy:
+    def calculate(self, y_pred, y_true):
+        predictions = np.argmax(y_pred, axis=1)
 
+        if len(y_true.shape) == 2:
+            y_true = np.argmax(y_true, axis=1)
+
+        accuracy = np.mean(predictions == y_true)
+        return accuracy
 
 # Initialize Dataset
 
