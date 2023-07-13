@@ -199,4 +199,31 @@ accuracy_function = Accuracy()
 
 # Epoch Iteration
 for iteration in range(10001):
+    # Implement 1st Dense Layer Forward Pass
+
+    # Implement ReLU Activation Forward Pass
+
+    # Implement 2nd Dense Layer Forward Pass
+
+    # Implement Categorical Cross-Entropy Loss and Softmax Activation Forward Pass
+
+    # Calculate Loss
+
+    # Calculate Accuracy from output of loss_activation and targets
+
+    # Display Iteration, Loss and Accuracy
+
+    # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
+
+    # Implement 2nd Dense Layer Backward Pass
+
+    # Implement ReLu Activation Backward Pass
+
+    # Implement 1st Dense Layer Backward Pass
+
+    # Implement Optimizer pre-update parameters
+
+    # Implement Optimizer update parameters
+
+    # Implement Optimizer post-update parameters
     pass
