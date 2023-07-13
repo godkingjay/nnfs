@@ -230,9 +230,10 @@ for epoch in range(10001):
     loss_activation.backward(loss_activation.outputs, y)
 
     # Implement 2nd Dense Layer Backward Pass
-    dense2.backward(loss_activation.outputs)
+    dense2.backward(loss_activation.dinputs)
 
     # Implement ReLu Activation Backward Pass
+    activation1.backward(dense2.dinputs)
 
     # Implement 1st Dense Layer Backward Pass
 
