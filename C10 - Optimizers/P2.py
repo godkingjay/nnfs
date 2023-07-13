@@ -129,7 +129,17 @@ class Loss_CategoricalCrossEntropy_Activation_Softmax():
 # Stochastic Gradient Descent (SGD) Optimizer Class
 
 
+class Optimizer_SGD:
+    def __init__(self, learning_rate=0., decay=0., momentum=0.) -> None:
+        self.learning_rate = learning_rate
+        self.current_learning_rate = learning_rate
+        self.decay = decay
+        self.iterations = 0
+        self.momentum = momentum
+
 # Accuracy Class
+
+
 class Accuracy:
     def calculate(self, y_pred, y_true):
         predictions = np.argmax(y_pred, axis=1)
