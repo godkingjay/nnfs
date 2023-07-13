@@ -194,6 +194,9 @@ activation1 = Activation_ReLU()
 # Create Softmax Classifier's combined Loss and Activation
 loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
+# Create SGD Optimizer
+optimizer_sgd = Optimizer_SGD()
+
 # Create Accuracy Object
 accuracy_function = Accuracy()
 
