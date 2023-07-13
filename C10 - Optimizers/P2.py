@@ -130,7 +130,7 @@ class Loss_CategoricalCrossEntropy_Activation_Softmax():
 
 
 class Optimizer_SGD:
-    def __init__(self, learning_rate=0., decay=0., momentum=0.) -> None:
+    def __init__(self, learning_rate=1., decay=0., momentum=0.) -> None:
         self.learning_rate = learning_rate
         self.current_learning_rate = learning_rate
         self.decay = decay
@@ -218,7 +218,7 @@ for epoch in range(10001):
     accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
     # Display Epoch, Loss and Accuracy
-    if not epoch % 100 == 0:
+    if epoch % 100 == 0:
         print(
             f'Epoch: {epoch},',
             f'Loss: {loss:.3f},',
