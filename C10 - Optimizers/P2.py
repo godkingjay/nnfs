@@ -189,7 +189,7 @@ dense1 = Layer_Dense(2, 64)
 dense2 = Layer_Dense(64, 3)
 
 # Create ReLU Activation Object
-
+activation1 = Activation_ReLU()
 
 # Create Softmax Classifier's combined Loss and Activation
 
