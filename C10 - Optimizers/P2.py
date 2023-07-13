@@ -195,13 +195,13 @@ activation1 = Activation_ReLU()
 loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
 # Create SGD Optimizer
-optimizer_sgd = Optimizer_SGD()
+optimizer_sgd = Optimizer_SGD(decay=1e-3, momentum=0.9)
 
 # Create Accuracy Object
 accuracy_function = Accuracy()
 
 # Epoch Iteration
-for iteration in range(10001):
+for epoch in range(10001):
     # Implement 1st Dense Layer Forward Pass
     dense1.forward(X)
 
@@ -217,7 +217,14 @@ for iteration in range(10001):
     # Calculate Accuracy from output of loss_activation and targets
     accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
-    # Display Iteration, Loss and Accuracy
+    # Display Epoch, Loss and Accuracy
+    if not epoch % 100 == 0:
+        print(
+            f'Epoch: {epoch},',
+            f'Loss: {loss:.3f},',
+            f'Accuracy: {accuracy:.3f}',
+            f'Learning Rate: {optimizer_sgd.current_learning_rate}'
+        )
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
 
