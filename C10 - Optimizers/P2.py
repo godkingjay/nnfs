@@ -203,6 +203,7 @@ accuracy_function = Accuracy()
 # Epoch Iteration
 for iteration in range(10001):
     # Implement 1st Dense Layer Forward Pass
+    dense1.forward(X)
 
     # Implement ReLU Activation Forward Pass
 
