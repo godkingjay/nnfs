@@ -186,7 +186,7 @@ X, y = spiral_data(samples=100, classes=3)
 dense1 = Layer_Dense(2, 64)
 
 # Create 2nd Dense Hidden Layer
-
+dense2 = Layer_Dense(64, 3)
 
 # Create ReLU Activation Object
 
