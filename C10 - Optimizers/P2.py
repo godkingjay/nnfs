@@ -215,6 +215,7 @@ for iteration in range(10001):
     loss = loss_activation.forward(dense2.outputs, y)
 
     # Calculate Accuracy from output of loss_activation and targets
+    accuracy = accuracy_function.calculate(loss_activation.outputs, y)
 
     # Display Iteration, Loss and Accuracy
 
