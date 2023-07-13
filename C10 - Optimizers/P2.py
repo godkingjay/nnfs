@@ -212,8 +212,7 @@ for iteration in range(10001):
     dense2.forward(activation1.outputs)
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Forward Pass
-
-    # Calculate Loss
+    loss = loss_activation.forward(dense2.outputs, y)
 
     # Calculate Accuracy from output of loss_activation and targets
 
