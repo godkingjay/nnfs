@@ -194,7 +194,7 @@ activation1 = Activation_ReLU()
 # Create Softmax Classifier's combined Loss and Activation
 loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
-# Create Loss and Accuracy Object
-
+# Create Accuracy Object
+accuracy_function = Accuracy()
 
 # Epoch Iteration
