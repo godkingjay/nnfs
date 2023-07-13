@@ -246,4 +246,4 @@ for epoch in range(10001):
     optimizer_sgd.update_params(dense2)
 
     # Implement Optimizer post-update parameters
-    pass
+    optimizer_sgd.post_update_params()
