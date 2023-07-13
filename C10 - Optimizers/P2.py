@@ -183,7 +183,7 @@ class Accuracy:
 X, y = spiral_data(samples=100, classes=3)
 
 # Create 1st Dense Hidden Layer
-
+dense1 = Layer_Dense(2, 64)
 
 # Create 2nd Dense Hidden Layer
 
