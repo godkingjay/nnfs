@@ -227,6 +227,7 @@ for epoch in range(10001):
         )
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
+    loss_activation.backward(loss_activation.outputs, y)
 
     # Implement 2nd Dense Layer Backward Pass
 
