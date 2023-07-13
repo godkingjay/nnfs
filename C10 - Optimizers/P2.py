@@ -198,3 +198,5 @@ loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 accuracy_function = Accuracy()
 
 # Epoch Iteration
+for iteration in range(10001):
+    pass
