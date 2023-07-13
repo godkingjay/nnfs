@@ -192,7 +192,7 @@ dense2 = Layer_Dense(64, 3)
 activation1 = Activation_ReLU()
 
 # Create Softmax Classifier's combined Loss and Activation
-
+loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
 # Create Loss and Accuracy Object
 
