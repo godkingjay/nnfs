@@ -239,6 +239,7 @@ for epoch in range(10001):
     dense1.backward(activation1.dinputs)
 
     # Implement Optimizer pre-update parameters
+    optimizer_sgd.pre_update_params()
 
     # Implement Optimizer update parameters
 
