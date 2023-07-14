@@ -176,6 +176,11 @@ class Optimizer_AdaGrad:
         self.iterations = 0
         self.epsilon = epsilon
 
+    def pre_update_params(self):
+        if self.decay:
+            self.current_learning_rate = self.learning_rate * \
+                (1. / (1. + self.decay * self.iterations))
+
 # Accuracy Class
 
 
