@@ -181,6 +181,9 @@ class Optimizer_AdaGrad:
             self.current_learning_rate = self.learning_rate * \
                 (1. / (1. + self.decay * self.iterations))
 
+    def post_update_params(self):
+        self.iterations += 1
+
 # Accuracy Class
 
 
