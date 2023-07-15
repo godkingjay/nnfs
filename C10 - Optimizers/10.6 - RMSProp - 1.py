@@ -210,7 +210,9 @@ class Optimizer_RMSProp:
         self.rho = rho
 
     def pre_update_params(self):
-        pass
+        if self.decay:
+            self.current_learning_rate = self.learning_rate * \
+                (1. / (1. + self.decay * self.iterations))
 
     def update_params():
         pass
