@@ -220,13 +220,16 @@ class Optimizer_RMSProp:
             layer.bias_cache = np.zeros_like(layer.biases)
 
         layer.weight_cache = self.rho * layer.weight_cache + \
-            (1 - self.rho) * layer.dweights**2
+            (1 - self.rho) * layer.dweights ** 2
         layer.bias_cache = self.rho * layer.bias_cache + \
-            (1 - self.rho) * layer.dbiases**2
-        layer.weights += -self.current_learning_rate * \
-            layer.dweights / (np.sqrt(layer.weight_cache) + self.epsilon)
-        layer.biases += -self.current_learning_rate * \
-            layer.dbiases / (np.sqrt(layer.bias_cache) + self.epsilon)
+            (1 - self.rho) * layer.dbiases ** 2
+
+        layer.weights += - self.current_learning_rate * \
+            layer.dweights / \
+            (np.sqrt(layer.weight_cache) + self.epsilon)
+        layer.biases += - self.current_learning_rate * \
+            layer.dbiases / \
+            (np.sqrt(layer.bias_cache) + self.epsilon)
 
     def post_update_params(self):
         self.iterations += 1
@@ -261,7 +264,11 @@ activation1 = Activation_ReLU()
 loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
 # Create SGD Optimizer
-optimizer_sgd = Optimizer_RMSProp(decay=1e-4)
+optimizer_sgd = Optimizer_RMSProp(
+    learning_rate=0.02,
+    decay=1e-5,
+    rho=0.999
+)
 
 # Create Accuracy Object
 accuracy_function = Accuracy()
@@ -287,8 +294,8 @@ for epoch in range(10001):
     if epoch % 100 == 0:
         print(
             f'Epoch: {epoch},',
-            f'Loss: {loss:.3f},',
             f'Accuracy: {accuracy:.3f}',
+            f'Loss: {loss:.3f},',
             f'Learning Rate: {optimizer_sgd.current_learning_rate}'
         )
 
