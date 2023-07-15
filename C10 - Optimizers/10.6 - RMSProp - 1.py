@@ -218,7 +218,7 @@ class Optimizer_RMSProp:
         pass
 
     def post_update_params(self):
-        pass
+        self.iterations += 1
 
 # Accuracy Class
 
