@@ -263,7 +263,7 @@ class Optimizer_Adam:
         pass
 
     def post_update_params(self):
-        pass
+        self.iterations += 1
 
 # Accuracy Class
 
