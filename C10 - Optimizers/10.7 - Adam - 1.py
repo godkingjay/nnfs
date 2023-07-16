@@ -11,17 +11,25 @@ nnfs.init()
 
 
 class Layer_Dense:
-    def __init__(self, n_inputs, n_neurons) -> None:
+    # Layer initialization
+    def __init__(self, n_inputs, n_neurons):
+        # Initialize weights and biases
         self.weights = 0.01 * np.random.randn(n_inputs, n_neurons)
         self.biases = np.zeros((1, n_neurons))
 
+    # Forward pass
     def forward(self, inputs):
+        # Remember input values
         self.inputs = inputs
+        # Calculate output values from inputs, weights and biases
         self.outputs = np.dot(inputs, self.weights) + self.biases
 
+    # Backward pass
     def backward(self, dvalues):
+        # Gradients on parameters
         self.dweights = np.dot(self.inputs.T, dvalues)
         self.dbiases = np.sum(dvalues, axis=0, keepdims=True)
+        # Gradient on values
         self.dinputs = np.dot(dvalues, self.weights.T)
 
 # Activation Functions
@@ -259,8 +267,43 @@ class Optimizer_Adam:
             self.current_learning_rate = self.learning_rate * \
                 (1. / (1. + self.decay * self.iterations))
 
-    def update_params(self):
-        pass
+    def update_params(self, layer: Layer_Dense):
+        if not hasattr(layer, 'weight_cache'):
+            layer.weight_momentums = np.zeros_like(layer.weights)
+            layer.weight_cache = np.zeros_like(layer.weights)
+            layer.bias_momentums = np.zeros_like(layer.biases)
+            layer.bias_cache = np.zeros_like(layer.biases)
+
+        layer.weight_momentums = self.beta_1 * \
+            layer.weight_momentums + \
+            (1 - self.beta_1) * layer.dweights
+        layer.bias_momentums = self.beta_1 * \
+            layer.bias_momentums + \
+            (1 - self.beta_1) * layer.dbiases
+
+        weight_momentums_corrected = layer.weight_momentums / \
+            (1 - self.beta_1 ** (self.iterations + 1))
+        bias_momentums_corrected = layer.bias_momentums / \
+            (1 - self.beta_1 ** (self.iterations + 1))
+
+        layer.weight_cache = self.beta_2 * layer.weight_cache + \
+            (1 - self.beta_2) * layer.dweights ** 2
+        layer.bias_cache = self.beta_2 * layer.bias_cache + \
+            (1 - self.beta_2) * layer.dbiases ** 2
+
+        weight_cache_corrected = layer.weight_cache / \
+            (1 - self.beta_2 ** (self.iterations + 1))
+        bias_cache_corrected = layer.bias_cache / \
+            (1 - self.beta_2 ** (self.iterations + 1))
+
+        layer.weights += - self.current_learning_rate * \
+            weight_momentums_corrected / \
+            (np.sqrt(weight_cache_corrected) +
+             self.epsilon)
+        layer.biases += - self.current_learning_rate * \
+            bias_momentums_corrected / \
+            (np.sqrt(bias_cache_corrected) +
+             self.epsilon)
 
     def post_update_params(self):
         self.iterations += 1
@@ -294,11 +337,10 @@ activation1 = Activation_ReLU()
 # Create Softmax Classifier's combined Loss and Activation
 loss_activation = Loss_CategoricalCrossEntropy_Activation_Softmax()
 
-# Create SGD Optimizer
-optimizer_sgd = Optimizer_RMSProp(
+# Create Optimizer
+optimizer = Optimizer_Adam(
     learning_rate=0.02,
     decay=1e-5,
-    rho=0.999
 )
 
 # Create Accuracy Object
@@ -327,7 +369,7 @@ for epoch in range(10001):
             f'Epoch: {epoch},',
             f'Accuracy: {accuracy:.3f}',
             f'Loss: {loss:.3f},',
-            f'Learning Rate: {optimizer_sgd.current_learning_rate}'
+            f'Learning Rate: {optimizer.current_learning_rate}'
         )
 
     # Implement Categorical Cross-Entropy Loss and Softmax Activation Backward Pass
@@ -343,11 +385,11 @@ for epoch in range(10001):
     dense1.backward(activation1.dinputs)
 
     # Implement Optimizer pre-update parameters
-    optimizer_sgd.pre_update_params()
+    optimizer.pre_update_params()
 
     # Implement Optimizer update parameters
-    optimizer_sgd.update_params(dense1)
-    optimizer_sgd.update_params(dense2)
+    optimizer.update_params(dense1)
+    optimizer.update_params(dense2)
 
     # Implement Optimizer post-update parameters
-    optimizer_sgd.post_update_params()
+    optimizer.post_update_params()
