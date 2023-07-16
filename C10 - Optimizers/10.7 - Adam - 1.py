@@ -255,7 +255,9 @@ class Optimizer_Adam:
         self.beta_2 = beta_2
 
     def pre_update_params(self):
-        pass
+        if self.decay:
+            self.current_learning_rate = self.learning_rate * \
+                (1. / (1. + self.decay * self.iterations))
 
     def update_params(self):
         pass
